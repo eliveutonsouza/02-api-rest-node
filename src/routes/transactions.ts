@@ -17,9 +17,9 @@ export async function transactionsRoutes(app: FastifyInstance) {
 
     const { id } = getTransactionParamsSchema.parse(request.params);
 
-    const transactions = await knex("transactions").where("id", id).first();
+    const transaction = await knex("transactions").where("id", id).first();
 
-    return { transactions };
+    return { transaction };
   });
 
   app.post("/", async (request, reply) => {
